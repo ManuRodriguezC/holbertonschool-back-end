@@ -25,10 +25,10 @@ def gather():
     list_task = []
 
     for dates in all_json:
-        task += 1
         if dates['completed']:
             comp += 1
             list_task.append(dates['title'])
+        task += 1
 
     name = user_json[0]['name']
     print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
