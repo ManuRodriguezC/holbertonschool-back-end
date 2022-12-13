@@ -30,10 +30,10 @@ def gather():
             comp += 1
             list_task.append(dates['title'])
 
-    name = user_json[0]['name']
-    print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
+    print("Employee {} is done with tasks({}/{}):".format(
+        user_json[0]['name'], comp, task))
     for task in list_task:
-        print("\t " + task)
+        print('\t ' + task)
 
 
 if __name__ == '__main__':
