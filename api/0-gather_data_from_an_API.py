@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-"""This module star API in jsonplacer"""
+"""
+This module start API in jsonplacer
+"""
 import requests
 from sys import argv
 
 
 def gather():
-    """This method gather the dates of the users"""
-    user_id = argv[1]
+    """
+    This method gather the dates of the users
+    """
+    user_id = int(argv[1])
     url_all = "https://jsonplaceholder.typicode.com/todos"
     url_user = "https://jsonplaceholder.typicode.com/users"
 
@@ -19,17 +23,17 @@ def gather():
         complete, task = 0, 0
 
         for dates in all_json:
-            if dates['userId'] == int(user_id):
+            if dates['userId'] == user_id:
                 task += 1
                 if dates['completed'] is True:
                     complete += 1
 
-        user = user_json[int(user_id) - 1]
+        user = user_json[user_id - 1]
         name = user['name']
 
         print(f"Employee {name} is done with tasks({complete}/{task}):")
         for dates in all_json:
-            if dates['userId'] == int(user_id) and dates['completed'] is True:
+            if dates['userId'] == user_id and dates['completed'] is True:
                 print(f"\t{dates['title']}")
 
 
