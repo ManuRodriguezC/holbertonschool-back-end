@@ -1,4 +1,4 @@
-#/!usr/bin/python3
+#!/usr/bin/python3
 """
 This module start the conecction with API jsonplace
 """
@@ -9,7 +9,7 @@ import csv
 
 def gather():
     """
-    This methos return the tasks of the users
+    This methos return all task of user
     """
 
     url_all = "https://jsonplaceholder.typicode.com/todos?"
@@ -26,17 +26,15 @@ def gather():
     name = user_json[0]['username']
     id = user_json[0]['id']
     list_date = []
-    
+
     for date in all_json:
-        dates = f'{id},{name},{date["completed"]},{date["title"]}'
-        list_date.append(dates)
-    for date in list_date:
-        print(date)
-    
-    with open('2.csv', 'w', encoding='UTF8') as file:
-        writer = csv.writer(file)
-        
-        writer.writerow(list_date)
+        info = [str(id), name, str(date['completed']), date['title']]
+        list_date.append(info)
+
+    with open('{}.csv'.format(argv[1]), 'w', encoding='UTF8') as file:
+        writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
+        writer.writerows(list_date)
+
 
 if __name__ == '__main__':
     gather()
