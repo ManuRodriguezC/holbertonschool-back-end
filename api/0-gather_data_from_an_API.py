@@ -34,5 +34,6 @@ def gather():
             if dates['userId'] == user_id and dates['completed'] is True:
                 print(f"\t{dates['title']}")
 
+
 if __name__ == '__main__':
     gather()
