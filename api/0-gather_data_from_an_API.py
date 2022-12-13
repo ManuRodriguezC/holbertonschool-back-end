@@ -11,8 +11,10 @@ def gather():
     This methos return the tasks of the users
     """
 
-    url_all = f"https://jsonplaceholder.typicode.com/todos?userId={argv[1]}"
-    url_user = f"https://jsonplaceholder.typicode.com/users?id={argv[1]}"
+    url_all = "https://jsonplaceholder.typicode.com/todos?userId={}".format(
+        argv[1])
+    url_user = "https://jsonplaceholder.typicode.com/users?id={}".format(
+        argv[1])
 
     response_all = requests.get(url_all)
     response_user = requests.get(url_user)
@@ -29,7 +31,7 @@ def gather():
             list_task.append(dates['title'])
 
     name = user_json[0]['name']
-    print(f"Employee {name} is done with tasks({comp}/{task}):")
+    print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
     for task in list_task:
         print("\t{}".format(task))
 
