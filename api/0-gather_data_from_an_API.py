@@ -3,7 +3,9 @@
 import requests
 from sys import argv
 
-if __name__ == '__main__':
+
+def gather():
+    """This method gather the dates of the users"""
     user_id = argv[1]
     url_all = "https://jsonplaceholder.typicode.com/todos"
     url_user = "https://jsonplaceholder.typicode.com/users"
@@ -29,3 +31,7 @@ if __name__ == '__main__':
         for dates in all_json:
             if dates['userId'] == int(user_id) and dates['completed'] is True:
                 print(f"\t{dates['title']}")
+
+
+if __name__ == '__main__':
+    gather()
