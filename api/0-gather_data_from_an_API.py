@@ -22,17 +22,19 @@ def gather():
     all_json = response_all.json()
     user_json = response_user.json()
     comp, task = 0, 0
+    list_task = []
+    
 
     for dates in all_json:
         task += 1
         if dates['completed'] is True:
             comp += 1
+            list_task.append(dates['title'])
 
     name = user_json[0]['name']
     print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
-    for dates in all_json:
-        if dates['completed'] is True:
-            print(f"\t{dates['title']}")
+    for task in list_task:
+        print("\t{}".format(task))
 
 
 if __name__ == '__main__':
