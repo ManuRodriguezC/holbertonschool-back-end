@@ -33,7 +33,7 @@ def gather():
     name = user_json[0]['name']
     print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
     for task in list_task:
-        print("\t" + task)
+        print("\t " + task)
 
 
 if __name__ == '__main__':
