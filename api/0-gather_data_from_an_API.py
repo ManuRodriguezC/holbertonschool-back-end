@@ -15,24 +15,23 @@ def gather():
     response_all = requests.get(url_all)
     response_user = requests.get(url_user)
 
-    if response_all.status_code == 200:
-        all_json = response_all.json()
-        user_json = response_user.json()
-        complete, task = 0, 0
+    all_json = response_all.json()
+    user_json = response_user.json()
+    complete, task = 0, 0
 
-        for dates in all_json:
-            if dates['userId'] == user_id:
-                task += 1
-                if dates['completed'] is True:
-                    complete += 1
+    for dates in all_json:
+        if dates['userId'] == user_id:
+            task += 1
+            if dates['completed'] is True:
+                complete += 1
 
-        user = user_json[user_id - 1]
-        name = user['name']
+    user = user_json[user_id - 1]
+    name = user['name']
 
-        print(f"Employee {name} is done with tasks({complete}/{task}):")
-        for dates in all_json:
-            if dates['userId'] == user_id and dates['completed'] is True:
-                print(f"\t{dates['title']}")
+    print(f"Employee {name} is done with tasks({complete}/{task}):")
+    for dates in all_json:
+        if dates['userId'] == user_id and dates['completed'] is True:
+            print(f"\t{dates['title']}")
 
 
 if __name__ == '__main__':
