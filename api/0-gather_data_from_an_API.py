@@ -7,7 +7,10 @@ from sys import argv
 
 
 def gather():
-    """This methos return the tasks of the users"""
+    """
+    This methos return the tasks of the users
+    """
+
     user_id = int(argv[1])
     url_all = "https://jsonplaceholder.typicode.com/todos"
     url_user = "https://jsonplaceholder.typicode.com/users"
