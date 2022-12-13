@@ -26,7 +26,7 @@ def gather():
 
     for dates in all_json:
         task += 1
-        if dates['completed'] is True:
+        if dates['completed']:
             comp += 1
             list_task.append(dates['title'])
 
