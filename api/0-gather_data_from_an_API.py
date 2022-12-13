@@ -19,16 +19,16 @@ def gather():
     response_all = requests.get(url_all, params=argv_all)
     response_user = requests.get(url_user, params=argv_user)
 
-    all_json = list(response_all.json())
-    user_json = list(response_user.json())
+    all_json = response_all.json()
+    user_json = response_user.json()
     comp, task = 0, 0
     list_task = []
 
     for dates in all_json:
+        task += 1
         if dates['completed']:
             comp += 1
             list_task.append(dates['title'])
-        task += 1
 
     name = user_json[0]['name']
     print("Employee {} is done with tasks({}/{}):".format(name, comp, task))
