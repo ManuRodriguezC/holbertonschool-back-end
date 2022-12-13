@@ -11,11 +11,13 @@ def gather():
     This methos return the tasks of the users
     """
 
-    url_all = "https://jsonplaceholder.typicode.com/todos?userId="
-    url_user = "https://jsonplaceholder.typicode.com/users?id="
+    url_all = "https://jsonplaceholder.typicode.com/todos?"
+    url_user = "https://jsonplaceholder.typicode.com/users?"
+    argv_all = {'userId': argv[1]}
+    argv_user = {'id': argv[1]}
 
-    response_all = requests.get(url_all + argv[1])
-    response_user = requests.get(url_user + argv[1])
+    response_all = requests.get(url_all, params=argv_all)
+    response_user = requests.get(url_user, params=argv_user)
 
     all_json = list(response_all.json())
     user_json = list(response_user.json())
