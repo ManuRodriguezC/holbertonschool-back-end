@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """This module star API in jsonplacer"""
 import requests
 from sys import argv
