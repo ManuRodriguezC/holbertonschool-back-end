@@ -3,7 +3,7 @@
 This module start the conecction with API jsonplace
 """
 import requests
-import sys
+from sys import argv
 
 
 def gather():
@@ -14,8 +14,8 @@ def gather():
     url_all = "https://jsonplaceholder.typicode.com/todos?userId="
     url_user = "https://jsonplaceholder.typicode.com/users?id="
 
-    response_all = requests.get(url_all + sys.argv[1])
-    response_user = requests.get(url_user + sys.argv[1])
+    response_all = requests.get(url_all + argv[1])
+    response_user = requests.get(url_user + argv[1])
 
     all_json = list(response_all.json())
     user_json = list(response_user.json())
