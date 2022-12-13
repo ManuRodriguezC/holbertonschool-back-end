@@ -19,8 +19,8 @@ def gather():
     response_all = requests.get(url_all)
     response_user = requests.get(url_user)
 
-    all_json = response_all.json()
-    user_json = response_user.json()
+    all_json = list(response_all.json())
+    user_json = list(response_user.json())
     comp, task = 0, 0
     list_task = []
 
